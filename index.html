@@ -478,6 +478,80 @@ textarea:focus {
   }
 }
 
+
+/* TESTAROSSA — SINGLE HOME EXPERIENCE */
+html,body{width:100%;height:100%;min-height:100%;margin:0;overflow:hidden}
+body{
+  padding:0!important;color:var(--text);
+  background:
+    radial-gradient(ellipse at 72% 30%,rgba(108,48,78,.34),transparent 36%),
+    radial-gradient(ellipse at 20% 70%,rgba(42,80,79,.22),transparent 38%),
+    linear-gradient(180deg,#080a12 0%,#12101b 52%,#080b12 100%);
+}
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.55;
+  background:
+    radial-gradient(1px 1px at 12% 18%,#f4d8d9 99%,transparent),
+    radial-gradient(1px 1px at 24% 61%,#c9a777 99%,transparent),
+    radial-gradient(2px 2px at 48% 27%,#e7dce9 99%,transparent),
+    radial-gradient(1px 1px at 69% 12%,#d9c7d8 99%,transparent),
+    radial-gradient(1px 1px at 88% 53%,#c9a777 99%,transparent),
+    radial-gradient(1px 1px at 78% 83%,#e7dce9 99%,transparent);
+  background-size:420px 360px;animation:home-stars 70s linear infinite;
+}
+body::after{
+  content:"";position:fixed;left:4vw;right:4vw;bottom:-26vh;height:46vh;z-index:0;pointer-events:none;
+  border-radius:50% 50% 0 0;
+  background:radial-gradient(ellipse at 50% 0%,rgba(114,65,87,.18),transparent 68%);
+  border-top:1px solid rgba(201,167,119,.12);
+  box-shadow:0 -30px 90px rgba(74,38,63,.12);
+}
+@keyframes home-stars{to{background-position:420px 360px}}
+.shell{display:block;position:relative;width:100%;height:100dvh;min-height:0;margin:0;overflow:hidden;isolation:isolate}
+.character{position:absolute;inset:0;min-height:0;border:0;border-radius:0;background:transparent;box-shadow:none;overflow:visible;pointer-events:none}
+.brand,.character-caption,.presence,.details,.chat-head,#computer-awareness{display:none!important}
+.portrait-wrap{
+  position:absolute;right:4vw;bottom:0;width:min(58vw,850px);height:100%;
+  min-height:0;padding:0;overflow:visible;display:flex;align-items:flex-end;justify-content:center;
+  background:radial-gradient(ellipse at 52% 48%,rgba(157,58,88,.19),transparent 58%);
+}
+.portrait-wrap::before{
+  content:"";position:absolute;width:min(78%,620px);aspect-ratio:1;left:50%;top:49%;
+  transform:translate(-50%,-50%);border:1px solid rgba(201,167,119,.2);border-radius:50%;
+  box-shadow:0 0 65px rgba(176,62,91,.12),inset 0 0 60px rgba(176,62,91,.08);
+}
+.portrait-wrap::after{
+  content:"";position:absolute;width:min(66%,520px);aspect-ratio:1;left:50%;top:49%;
+  transform:translate(-50%,-50%);border:1px solid rgba(201,167,119,.11);border-radius:50%;
+}
+.portrait{position:relative;z-index:1;width:auto;height:min(94vh,900px);max-width:100%;max-height:100%;filter:drop-shadow(0 20px 40px #000b) drop-shadow(0 0 22px #a8325033)}
+.chat-panel{
+  position:absolute;z-index:3;left:clamp(20px,4vw,72px);bottom:clamp(18px,4vh,42px);
+  width:min(47vw,680px);height:min(53vh,540px);min-height:260px;
+  display:flex;flex-direction:column;background:linear-gradient(145deg,rgba(15,14,24,.70),rgba(13,12,20,.36));
+  border:1px solid rgba(201,167,119,.2);border-radius:18px;box-shadow:0 18px 60px #0005;
+  backdrop-filter:blur(12px);overflow:hidden;
+}
+#chat{flex:1;min-height:0;overflow-y:auto;padding:22px 22px 12px;display:flex;flex-direction:column;gap:12px;background:transparent}
+.message{max-width:88%;padding:12px 16px;border-radius:14px;line-height:1.65;font-size:14px;box-shadow:0 5px 20px #0003}
+.baby{align-self:flex-start;background:linear-gradient(135deg,rgba(39,29,43,.94),rgba(24,22,32,.92));border:1px solid rgba(201,167,119,.24);border-left:2px solid #bd8a70}
+.user{align-self:flex-end;background:linear-gradient(135deg,rgba(76,34,52,.94),rgba(43,28,43,.92));border:1px solid rgba(135,80,100,.5);border-right:2px solid #c9a66e}
+.composer{padding:12px 14px 14px;border:0;background:transparent}
+form{display:flex;gap:10px;align-items:stretch}
+textarea{flex:1;resize:none;min-height:48px;max-height:120px;padding:13px 16px;border-radius:14px;border:1px solid rgba(201,167,119,.28);background:rgba(8,9,15,.82);color:var(--text);outline:none;font:inherit}
+textarea:focus{border-color:var(--rose);box-shadow:0 0 0 2px #a52d4d22}
+.send{min-width:76px;border:1px solid rgba(201,167,119,.45);border-radius:14px;padding:0 18px;color:white;font-weight:700;background:linear-gradient(135deg,#8e2946,#512238)}
+.hint{display:none}
+#status,#dot,#expression-label,#presence-note{display:none!important}
+.message .animated-word{animation:none}
+@media(max-width:800px){
+  .portrait-wrap{right:-12vw;width:100vw;height:72vh;opacity:.86}
+  .portrait{height:75vh;max-width:100vw}
+  .chat-panel{left:12px;right:12px;bottom:12px;width:auto;height:42vh;min-height:220px}
+  #chat{padding:14px}
+}
+@media(prefers-reduced-motion:reduce){body::before{animation:none}}
+
 </style>
 
 <style>
@@ -2728,28 +2802,10 @@ body::before {
   </svg>
   </div>
 
-  <div class="character-caption">
-    <h2>Testarossa</h2>
-    <p>Elegant · Proud · Commanding · Mischievous</p>
-  </div>
-  <div class="presence">
-    <strong id="expression-label">Calm and composed</strong>
-    <div id="presence-note">Her first code-rendered character preview</div>
-  </div>
-</section>
+  </section>
 
 <section class="panel chat-panel">
-  <div class="chat-head">
-    <div>
-      <h2>Conversation</h2>
-      <div class="connection"><span class="dot" id="dot"></span><span id="status">Connecting...</span></div>
-    </div>
-    <div class="modes">
-      <button class="mode active" id="companion" type="button">Companion</button>
-      <button class="mode" id="professional" type="button">Professional</button>
-    </div>
-  </div>
-  
+  <div class="chat-head" aria-hidden="true"><div><span id="dot"></span><span id="status">Connecting...</span></div><div class="modes"><button class="mode active" id="companion" type="button">Companion</button><button class="mode" id="professional" type="button">Professional</button></div></div>
   <details id="computer-awareness" aria-label="Computer awareness">
     <summary class="computer-summary">
       <span class="computer-summary-title">COMPUTER AWARENESS</span>
@@ -2825,71 +2881,7 @@ An elegant presence, a sharp mind, and a little mischief when the moment permits
   </div>
 </section>
 
-<aside class="panel details">
-  <div>
-    <div class="eyebrow">Character profile</div>
-    <h3 style="margin-top:8px">Her nature</h3>
-    <div class="detail-card">
-      <p>An elegant, proud and commanding demoness, with a warm, affectionate and delightfully mischievous side reserved for those she trusts.</p>
-    </div>
-  </div>
-  <div>
-    <h3>Personality foundation</h3>
-    <div class="trait"><span>Elegance</span><div class="track"><i style="--w:96%"></i></div></div>
-    <div class="trait"><span>Confidence</span><div class="track"><i style="--w:94%"></i></div></div>
-    <div class="trait"><span>Intelligence</span><div class="track"><i style="--w:95%"></i></div></div>
-    <div class="trait"><span>Playfulness</span><div class="track"><i style="--w:78%"></i></div></div>
-    <div class="trait"><span>Affection</span><div class="track"><i style="--w:82%"></i></div></div>
-  </div>
-  <div>
-    <h3>Visual identity</h3>
-    <span class="tag">Snow-white hair</span>
-    <span class="tag">Scarlet eyes</span>
-    <span class="tag">Warm complexion</span>
-    <span class="tag">Refined features</span>
-    <span class="tag">Aristocratic style</span>
-  </div>
-  <div>
-    <h3>Development status</h3>
-    <div class="detail-card">
-      <p>Code-rendered portrait: active</p>
-      <p>Chat connection: existing</p>
-      <p>Expression reactions: prototype</p>
-      <p>Full 3D model: planned</p>
-      <p>Persistent personality: planned</p>
-    </div>
-  </div>
-  <section class="presence-card" aria-label="Testarossa current presence">
-    <div class="presence-card-heading">
-      <span class="presence-orb"></span>
-      <div>
-        <div class="eyebrow">CURRENT PRESENCE</div>
-        <h3>At your service, Master</h3>
-      </div>
-    </div>
-    <p class="presence-intro">My current capabilities and the boundaries that keep your system under your control.</p>
-    <div class="presence-capability">
-      <span class="presence-symbol">✦</span>
-      <div><strong>Conversation &amp; planning</strong><span>Available</span></div>
-    </div>
-    <div class="presence-capability">
-      <span class="presence-symbol">⌘</span>
-      <div><strong>Computer awareness</strong><span>Read-only inspection</span></div>
-    </div>
-    <div class="presence-capability">
-      <span class="presence-symbol">◇</span>
-      <div><strong>Blender awareness</strong><span>Scene and project inspection</span></div>
-    </div>
-    <div class="presence-capability">
-      <span class="presence-symbol">⚿</span>
-      <div><strong>Changes to files or Blender</strong><span>Your approval required</span></div>
-    </div>
-    <div class="presence-card-foot">Your system. Your permissions. Your decisions.</div>
-  </section>
-  <div class="footer-note">
-    This portrait is drawn using SVG paths, gradients and CSS animation. It is not a generated image or a finished 3D model. Mode buttons currently change the visual profile only.
-  </div>
-</aside>
+
 </div>
 
 <script>
@@ -3509,6 +3501,56 @@ input.addEventListener("keydown",e=>{
   }
 });
 checkStatus();
+
+/* Chat-command access to existing screen-observation controls. */
+document.addEventListener("submit", async (event) => {
+  if (event.target !== document.getElementById("form")) return;
+  const text = input.value.trim();
+  const start = /^(?:please\\s+)?(?:start|begin|enable|activate)\\s+(?:(?:continu(?:ous|ously)\\s+)?(?:screen|desktop)\\s+)?(?:watch(?:ing)?|observ(?:e|ation)|monitor(?:ing)?)(?:\\s+(?:my\\s+)?screen)?[.! ]*$/i.test(text)
+    || /^(?:watch|observe|monitor)\\s+(?:my\\s+)?(?:screen|desktop)[.! ]*$/i.test(text);
+  const stop = /^(?:please\\s+)?(?:stop|end|disable|deactivate)\\s+(?:(?:continu(?:ous|ously)\\s+)?(?:screen|desktop)\\s+)?(?:watch(?:ing)?|observ(?:ation)|monitor(?:ing)?)(?:\\s+(?:my\\s+)?screen)?[.! ]*$/i.test(text)
+    || /^(?:stop|end)\\s+(?:watching|observing|monitoring)\\s+(?:my\\s+)?(?:screen|desktop)[.! ]*$/i.test(text);
+  if (!start && !stop) return;
+  event.preventDefault();
+  event.stopImmediatePropagation();
+  bubble(text,"user");
+  input.value="";
+  send.disabled=true;
+  try {
+    if (start) {
+      await visionRequest("start");
+      visionLastCapture=0;
+      visionCaptureButton.disabled=false;
+      visionStopButton.disabled=false;
+      bubble("Continuous screen observation is now active. I will analyse the Windows desktop as new captures arrive. Tell me to stop when you want me to end the session.","baby");
+      pollVisionStatus(true);
+    } else {
+      await visionRequest("stop");
+      visionStopButton.disabled=true;
+      visionCaptureButton.disabled=true;
+      visionImage.removeAttribute("src");
+      visionImage.hidden=true;
+      visionImage.style.display="none";
+      visionAnalysis.textContent="";
+      visionQuestion.value="";
+      visionAnswer.textContent="";
+      visionAskButton.disabled=true;
+      visionLastCapture=0;
+      bubble("Screen observation has stopped. The displayed capture has been cleared.","baby");
+    }
+  } catch(error) {
+    bubble("I could not "+(start?"start":"stop")+" screen observation: "+error.message,"baby");
+  } finally {
+    send.disabled=false;
+    input.focus();
+  }
+}, true);
+
+portrait.addEventListener("click", () => {
+  setExpression("happy","Glad to see you","A direct touch interaction");
+  window.setTimeout(()=>setExpression("idle","Calm and composed","At home"),1600);
+});
+
 </script>
 </body>
 </html>
