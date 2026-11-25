@@ -508,7 +508,7 @@ body::after{
 }
 @keyframes home-stars{to{background-position:420px 360px}}
 .shell{display:block;position:relative;width:100%;height:100dvh;min-height:0;margin:0;overflow:hidden;isolation:isolate}
-.character{position:absolute;inset:0;min-height:0;border:0;border-radius:0;background:transparent;box-shadow:none;overflow:visible;pointer-events:none}
+.character{position:absolute;inset:0;min-height:0;border:0;border-radius:0;background:transparent;box-shadow:none;overflow:visible;pointer-events:none}.portrait-wrap,.portrait{pointer-events:auto;cursor:pointer}
 .brand,.character-caption,.presence,.details,.chat-head,#computer-awareness{display:none!important}
 .portrait-wrap{
   position:absolute;right:4vw;bottom:0;width:min(58vw,850px);height:100%;
@@ -2867,6 +2867,7 @@ body::before {
     </div>
   </details>
 
+  <span id="expression-label" hidden></span><span id="presence-note" hidden></span>
   <main id="chat">
     <div class="message baby">Greetings, Master. I am Testarossa.
 
@@ -3506,10 +3507,10 @@ checkStatus();
 document.addEventListener("submit", async (event) => {
   if (event.target !== document.getElementById("form")) return;
   const text = input.value.trim();
-  const start = /^(?:please\\s+)?(?:start|begin|enable|activate)\\s+(?:(?:continu(?:ous|ously)\\s+)?(?:screen|desktop)\\s+)?(?:watch(?:ing)?|observ(?:e|ation)|monitor(?:ing)?)(?:\\s+(?:my\\s+)?screen)?[.! ]*$/i.test(text)
-    || /^(?:watch|observe|monitor)\\s+(?:my\\s+)?(?:screen|desktop)[.! ]*$/i.test(text);
-  const stop = /^(?:please\\s+)?(?:stop|end|disable|deactivate)\\s+(?:(?:continu(?:ous|ously)\\s+)?(?:screen|desktop)\\s+)?(?:watch(?:ing)?|observ(?:ation)|monitor(?:ing)?)(?:\\s+(?:my\\s+)?screen)?[.! ]*$/i.test(text)
-    || /^(?:stop|end)\\s+(?:watching|observing|monitoring)\\s+(?:my\\s+)?(?:screen|desktop)[.! ]*$/i.test(text);
+  const start = /^(?:please\s+)?(?:start|begin|enable|activate)\s+(?:(?:continu(?:ous|ously)\s+)?(?:screen|desktop)\s+)?(?:watch(?:ing)?|observ(?:e|ation)|monitor(?:ing)?)(?:\s+(?:my\s+)?screen)?[.! ]*$/i.test(text)
+    || /^(?:watch|observe|monitor)\s+(?:my\s+)?(?:screen|desktop)[.! ]*$/i.test(text);
+  const stop = /^(?:please\s+)?(?:stop|end|disable|deactivate)\s+(?:(?:continu(?:ous|ously)\s+)?(?:screen|desktop)\s+)?(?:watch(?:ing)?|observ(?:ation)|monitor(?:ing)?)(?:\s+(?:my\s+)?screen)?[.! ]*$/i.test(text)
+    || /^(?:stop|end)\s+(?:watching|observing|monitoring)\s+(?:my\s+)?(?:screen|desktop)[.! ]*$/i.test(text);
   if (!start && !stop) return;
   event.preventDefault();
   event.stopImmediatePropagation();
